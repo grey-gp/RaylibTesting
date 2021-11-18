@@ -8,26 +8,29 @@ int main()
     Color screenColor = RAYWHITE;
     Texture2D background = LoadTexture("../Content/Images/3.png");
 
-    Player player;
-    player.characterSprite = LoadTexture("../Content/Character/static idle.png");
+    Player *player = new Player;
+    player->frames = 8;
+    player->characterSprite = LoadTexture("../Content/Character/move with FX.png");
+    player->scale = 2.5f;
 
     SetTargetFPS(60);
 
     while(!WindowShouldClose())
     {
 
-        player.HandleMovement();
+        player->HandleMovement();
 
         BeginDrawing();
             ClearBackground(screenColor);
 
             DrawTexture(background, 0, 0, RAYWHITE);
-            player.Draw();
+            player->Draw();
 
         EndDrawing();
 
     }
     UnloadTexture(background);
-    player.Unload();
+    player->Unload();
     CloseWindow();
+    delete player;
 }

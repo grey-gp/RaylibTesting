@@ -2,7 +2,7 @@
 
 void Player::Draw()
 {
-    DrawTextureV(characterSprite, position, RAYWHITE);
+    DrawTextureRec(characterSprite, Rectangle{0.f, 0.f, (float)characterSprite.width, (float)characterSprite.height/frames}, position, RAYWHITE);
 }
 
 void Player::Unload()
