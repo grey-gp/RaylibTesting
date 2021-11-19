@@ -10,4 +10,6 @@ public:
     void Unload();
     void HandleMovement();
 
+    Player(Texture2D texture, int frames);
+
 };

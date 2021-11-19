@@ -8,11 +8,7 @@ int main()
     Color screenColor = RAYWHITE;
     Texture2D background = LoadTexture("../Content/Images/3.png");
 
-    Player *player = new Player;
-    player->frames = 8;
-    player->characterSprite = LoadTexture("../Content/Character/move with FX.png");
-    player->scale = 2.5f;
-
+    Player *player = new Player(LoadTexture("../Content/Character/move with FX.png"), 8);
     SetTargetFPS(60);
 
     while(!WindowShouldClose())
