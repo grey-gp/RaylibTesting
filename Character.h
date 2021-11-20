@@ -7,8 +7,8 @@ class Character
 public:
     Texture2D characterSprite;
     Vector2 position;
-    // float rotation = 0.f;
-    // float scale = 1.f;
+    int rotation = 0;
+    float scale = 2.f;
     int frames = 0;
 
     Character();
@@ -23,6 +23,9 @@ protected:
     int frameCounter = 0;
 
     Rectangle frameRec;
+    Rectangle destRec;
+
+    Vector2 origin;
 
     void HandleAnim();
 

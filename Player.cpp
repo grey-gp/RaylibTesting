@@ -6,18 +6,21 @@ void Player::HandleMovement()
 
     if (IsKeyDown(KEY_RIGHT))
     {
-        position.x += 2;
+        position.x += 3;
     }
     else if (IsKeyDown(KEY_LEFT))
     {
-        position.x -= 2;
+        position.x -= 3;
     }
     else if (IsKeyDown(KEY_UP))
     {
-        position.y -= 2;
+        position.y -= 3;
     }
     else if (IsKeyDown(KEY_DOWN))
     {
-        position.y += 2;
+        position.y += 3;
     }
+
+    destRec.x = position.x;
+    destRec.y = position.y;
 }

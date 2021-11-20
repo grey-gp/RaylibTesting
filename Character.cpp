@@ -1,21 +1,19 @@
 #include "Character.h"
 
-Character::Character()
-{
-    position = Vector2{500, 200};
-}
-
 Character::Character(Texture2D texture, int animFrames)
 {
+    position = {100.f, 100.f};
     characterSprite = texture;
     this->frames = animFrames;
     frameHeight = (float)characterSprite.height/frames;
-    frameRec = Rectangle{0.f, currentFrame * frameHeight, (float)characterSprite.width, frameHeight};
+    frameRec = {0.f, currentFrame * frameHeight, (float)characterSprite.width, frameHeight};
+    destRec = {position.x, position.y, characterSprite.width * scale, frameHeight * scale};
+    origin = {(float)characterSprite.width, frameHeight};
 }
 
 void Character::Draw()
 {
-    DrawTextureRec(characterSprite, frameRec, position, RAYWHITE);
+    DrawTexturePro(characterSprite, frameRec, destRec, origin, rotation, RAYWHITE);
 }
 
 void Character::Unload()

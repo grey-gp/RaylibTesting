@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "Character.h"
 
+#include <iostream>
+
 int main()
 {
     InitWindow(1000, 700, "Hello, Raylib");
@@ -10,7 +12,7 @@ int main()
     Texture2D background = LoadTexture("../Content/Images/3.png");
 
     Player *player = new Player(LoadTexture("../Content/Character/move with FX.png"), 8);
-    player->position = Vector2{500, 200};
+    player->position = {500, 200};
     Character *npc = new Character(LoadTexture("../Content/Character/shoot with FX.png"), 4);
     SetTargetFPS(60);
 
