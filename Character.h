@@ -14,7 +14,10 @@ public:
     Character();
 
 protected:
-    float frameHeight;
-    int currentFrame = 1;
+    float frameHeight = 0.f;
+    int currentFrame = 0;
+    int frameCounter = 0;
+
+    Rectangle frameRec;
 
 };
