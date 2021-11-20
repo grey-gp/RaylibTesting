@@ -1,37 +1,20 @@
 #include "Player.h"
 
-Player::Player(Texture2D texture, int frames)
-{
-    characterSprite = texture;
-    this->frames = frames;
-    frameHeight = (float)characterSprite.height/frames;
-    frameRec = Rectangle{0.f, currentFrame * frameHeight, (float)characterSprite.width, frameHeight};
-}
+// Player::Player(Texture2D texture, int frames)
+// {
+//     // characterSprite = texture;
+//     // this->frames = frames;
+//     // frameHeight = (float)characterSprite.height/frames;
+//     // frameRec = Rectangle{0.f, currentFrame * frameHeight, (float)characterSprite.width, frameHeight};
+//     Character(texture, frames);
+// }
 
-void Player::Draw()
-{
-    DrawTextureRec(characterSprite, frameRec, position, RAYWHITE);
-}
 
-void Player::Unload()
-{
-    UnloadTexture(characterSprite);
-}
 
 void Player::HandleMovement()
 {
 
-    frameCounter++;
-
-    if (frameCounter > 60/5)
-    {
-        frameCounter = 0;
-        currentFrame++;
-        
-        if (currentFrame > frames) currentFrame = 0;
-        frameRec.y = currentFrame * frameHeight;
-
-    }
+    HandleAnim();
 
     if (IsKeyDown(KEY_RIGHT))
     {

@@ -12,6 +12,10 @@ public:
     int frames = 0;
 
     Character();
+    Character(Texture2D texture, int animFrames);
+    void Draw();
+    void Unload();
+    void HandleMovement();
 
 protected:
     float frameHeight = 0.f;
@@ -19,5 +23,7 @@ protected:
     int frameCounter = 0;
 
     Rectangle frameRec;
+
+    void HandleAnim();
 
 };

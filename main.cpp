@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "Player.h"
+#include "Character.h"
 
 int main()
 {
@@ -9,24 +10,30 @@ int main()
     Texture2D background = LoadTexture("../Content/Images/3.png");
 
     Player *player = new Player(LoadTexture("../Content/Character/move with FX.png"), 8);
+    player->position = Vector2{500, 200};
+    Character *npc = new Character(LoadTexture("../Content/Character/shoot with FX.png"), 4);
     SetTargetFPS(60);
 
     while(!WindowShouldClose())
     {
 
         player->HandleMovement();
+        npc->HandleMovement();
 
         BeginDrawing();
             ClearBackground(screenColor);
 
             DrawTexture(background, 0, 0, RAYWHITE);
             player->Draw();
+            npc->Draw();
 
         EndDrawing();
 
     }
     UnloadTexture(background);
     player->Unload();
+    npc->Unload();
     CloseWindow();
     delete player;
+    delete npc;
 }
