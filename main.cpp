@@ -12,7 +12,7 @@ int main()
     Texture2D background = LoadTexture("../Content/Images/3.png");
 
     Player *player = new Player(LoadTexture("../Content/Character/move with FX.png"), 8);
-    player->position = {500, 200};
+    player->setPosition({500, 200});
     Character *npc = new Character(LoadTexture("../Content/Character/shoot with FX.png"), 4);
     SetTargetFPS(60);
 
